@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
+  const handlerMessage = () => {
+    const urlWebhook =
+      "https://discord.com/api/webhooks/830828807836925972/EsUEXNVESi8Xzi3e0W43pbMCTKg63XVItS96I1lJmPqvuSUPLJldt49q1dhJ8pvBoH7h";
+
+    const msg = {
+      content: "Hola soy un bot",
+    };
+
+    fetch(urlWebhook + "?wait=true", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(msg),
+    })
+      .then((a) => a.json())
+      .then(console.log);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button
+        onClick={() => {
+          handlerMessage();
+          console.log("enviado");
+        }}
+      >
+        Send Message
+      </button>
     </div>
   );
 }
