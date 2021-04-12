@@ -1,6 +1,6 @@
 ## Correr Proyecto 
 
-< yarn start >
+yarn start
 
 ## Links Utiles
 
